@@ -14,8 +14,7 @@ class User < ApplicationRecord
   #追加
   has_many :favorites #自分がお気に入りしているmicropostへの参照
   has_many :favposts, through: :favorites, source: :micropost
-  has_many :reverses_of_favorite, class_name: 'Favorite', foreign_key: 'micropost_id'
-  has_many :favoriters, through: :reverses_of_favorite, source: :user
+
   
   def follow(other_user)
     unless self == other_user
